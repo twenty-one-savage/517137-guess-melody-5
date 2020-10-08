@@ -1,5 +1,8 @@
 
-const AVATAR_URL = `https://www.stevensegallery.com/300/`;
+import {getRandomInteger} from "../utils/common";
+import {AvatarProperties} from "../const";
+
+const AVATAR_URL = `https://www.stevensegallery.com/${AvatarProperties.height}`;
 
 export default [
   {
@@ -25,14 +28,14 @@ export default [
       src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
     },
     answers: [{
-      picture: `${AVATAR_URL}/${Math.random()}`,
-      artist: `John Snow`,
+      picture: `${AVATAR_URL}/${getRandomInteger(100, AvatarProperties.width)}`,
+      artist: `Pi'erre Bourne`,
     }, {
-      picture: `${AVATAR_URL}/${Math.random()}`,
-      artist: `Jack Daniels`,
+      picture: `${AVATAR_URL}/${getRandomInteger(100, AvatarProperties.width)}`,
+      artist: `21 Savage`,
     }, {
-      picture: `${AVATAR_URL}/${Math.random()}`,
-      artist: `Jim Beam`,
+      picture: `${AVATAR_URL}/${getRandomInteger(100, AvatarProperties.width)}`,
+      artist: `Da Baby`,
     }],
   }
 ];
