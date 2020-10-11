@@ -1,5 +1,5 @@
 import {PureComponent} from 'react';
-import {GameType} from "../../const";
+import {questionTypes} from "../../utils/types";
 
 
 class GenreQuestionScreen extends PureComponent {
@@ -80,16 +80,10 @@ class GenreQuestionScreen extends PureComponent {
   }
 }
 
-GenreQuestionScreen.propTypes = {
-  onAnswer: PropTypes.func.isRequired,
-  question: PropTypes.shape({
-    answers: PropTypes.arrayOf(PropTypes.exact({
-      src: PropTypes.string.isRequired,
-      genre: PropTypes.string.isRequired,
-    })).isRequired,
-    genre: PropTypes.string.isRequired,
-    type: PropTypes.oneOf([GameType.ARTIST, GameType.GENRE]).isRequired,
-  }).isRequired
+GenreQuestionScreen.propTypes = questionTypes;
+
+GenreQuestionScreen.defaultProps = {
+  onAnswer: () => {}
 };
 
 export default GenreQuestionScreen;

@@ -1,5 +1,7 @@
 globals:
+  React: true
   ReactDOM: true
+  PropTypes: true
 
 env:
   es6: true
@@ -7,10 +9,6 @@ env:
   commonjs: true
 
 extends: ['htmlacademy/es6', 'plugin:react/recommended']
-
-rules:
-  "react/react-in-jsx-scope": "off"
-  "forbid-prop-types": "off"
 
 parserOptions:
   ecmaFeatures:
