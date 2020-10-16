@@ -1,5 +1,6 @@
 import {PureComponent} from 'react';
 import {questionTypes} from "../../utils/types";
+import AudioPlayer from "../audio-player/audio-player";
 
 
 class GenreQuestionScreen extends PureComponent {
@@ -7,13 +8,14 @@ class GenreQuestionScreen extends PureComponent {
     super(props);
 
     this.state = {
+      activePlayer: null,
       answers: [false, false, false, false],
     };
   }
 
   render() {
     const {onAnswer, question} = this.props;
-    const {answers: userAnswers} = this.state;
+    const {answers: userAnswers, activePlayer} = this.state;
     const {
       answers,
       genre,
@@ -49,12 +51,15 @@ class GenreQuestionScreen extends PureComponent {
           >
             {answers.map((answer, i) => (
               <div key={`${i}-${answer.src}`} className="track">
-                <button className="track__button track__button--play" type="button"/>
-                <div className="track__status">
-                  <audio
-                    src={answer.src}
-                  />
-                </div>
+                <AudioPlayer
+                  isPlaying={i === activePlayer}
+                  src={answer.src}
+                  onPlayButtonClick={() => {
+                    this.setState({
+                      activePlayer: activePlayer === i ? -1 : i
+                    });
+                  }}
+                />
                 <div className="game__answer">
                   <input className="game__input visually-hidden" type="checkbox" name="answer" value={`answer-${i}`}
                     id={`answer-${i}`}
