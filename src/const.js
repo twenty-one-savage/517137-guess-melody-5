@@ -4,6 +4,8 @@ export const GameType = {
 };
 
 export const AvatarProperties = {
-  width: 134,
-  height: 134
+  WIDTH: 134,
+  HEIGHT: 134
 };
+
+export const MAX_MISTAKE_COUNT = 3;
